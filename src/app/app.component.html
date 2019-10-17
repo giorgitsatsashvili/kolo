@@ -1,0 +1,38 @@
+
+
+<div class="users-boxes">
+
+  
+
+    <ul>
+      <li *ngFor='let test of user; let i = index;' >
+        <div>
+        <div><span>Name:</span>{{test.name |uppercase}}</div>
+        <div><span>Lastname:</span>{{test.lastname | uppercase}}</div>
+        <div><span>Personal-id:</span>{{test.personal_id}}</div>
+        <div><span>Phone:</span>{{test.phone}}</div>
+        <div><span>Email:</span>{{test.email}}</div>
+        <div><span>Address:</span>{{test.address}}</div>
+      </div>
+       
+      <!-- <form #updateForm='ngForm' (ngSubmit)='itemUpdate(updateForm)'>
+        <input type="text" name='name' ngModel>
+        <button (click)='itemUpdate(i)'> edit</button>
+      </form> -->
+        <button (click)="removeUser(i)" class="rem">remove</button>
+      </li>
+    </ul>
+  </div>
+
+  <form  #userForm="ngForm" (ngSubmit)='addUser(userForm)'>
+      <input type="text" name="name" placeholder="name" ngModel>
+      <input type="text" name="lastname" placeholder="lastname" ngModel>
+      <input type="text" name="personal_id" placeholder="ID" ngModel>
+      <input type="text" name="phone" placeholder="Phone" ngModel>
+      <input type="text" name="email" placeholder="Email" ngModel>
+      <input type="text" name="address" placeholder="Address" ngModel>
+      <button >Add</button>
+    </form>
+    <button (click)='userSort(user)'>sort</button>
+
+           
